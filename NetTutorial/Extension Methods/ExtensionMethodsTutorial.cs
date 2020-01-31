@@ -22,13 +22,17 @@ namespace NetTutorial.Extension_Methods
             //TopTip: Hover over 'ourTestString' with your mouse to see the value currently assigned to that variable
 
             int fCount = ourTestString.CountCharacters('F');    // <---- Use F12 with cursor over CountCharactes to go to definition! 
+            Console.WriteLine($"The number of F in our string is {fCount}");
             Assert.AreEqual(fCount, 0);     //There are no 'F' in our string
 
+
             int aCount = ourTestString.CountCharacters('A');
+            Console.WriteLine($"The number of A in our string is {aCount}");
             Assert.AreEqual(aCount, 0);     //Weirdly there is no 'A' character in our String - this is obviously because 'A' != 'a'
 
             //We can create an overload method for CountCharacters where we specify that the input is not case sensitive
             aCount = ourTestString.CountCharacters('A', false);
+            Console.WriteLine($"The number of A in our string without sensitivity is now {aCount}");
             Assert.AreEqual(aCount, 2); //There's our A's 
 
             //Extension methods can apply to almost anything, classes, interfaces, objects and types 

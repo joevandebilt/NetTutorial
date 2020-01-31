@@ -19,7 +19,7 @@ namespace NetTutorial.IEnumerable
              */
             IEnumerable<string> strings;
             IEnumerable<DateTime> dateTimes;
-            //IEnumerable<IEnumerableTutorial> // <--- Doesn't like this
+            // It Doesn't like this ---> IEnumerable<IEnumerableTutorial> tutorials
 
             /*
              * What the fuck is it though? IEnumerable is an interface that impliments only 1 method, GetEnumerator()
@@ -34,7 +34,7 @@ namespace NetTutorial.IEnumerable
              * 
              * Take the following example
              */
-             
+
             //We get a list of dates from our database, or an API
             IEnumerable<DateTime> allMyDateTimes = GetAllDateTimesFromTheDB();
 
@@ -43,6 +43,8 @@ namespace NetTutorial.IEnumerable
             //Notice how .Where() also returns an IEnumerable
             var filterList = allMyDateTimes.Where(x => x < DateTime.Today);     
 
+            //Notice now that if you hover over filterList you now cannot see the count, or individual elements;
+
             //And we want them displayed in order
             var orderedList = filterList.OrderBy(x => x);
 
@@ -50,7 +52,7 @@ namespace NetTutorial.IEnumerable
             //Because this object is IEnumerable, it hasn't actually been implimented yet - it's structure isn't defined 
             //which unfortunately means we can't interact with it yet
 
-            //var earliestDate = orderedList[0]; /// <---- This will throw an error
+            //This will throw an error ---> var earliestDate = orderedList[0];
 
             //However - all we need to do is cast our IEnumerable to a type which inherits the IEnumerable interface 
             //There are several types, but the most common is List<T> or Array<T> - there are actually extension methods to 
